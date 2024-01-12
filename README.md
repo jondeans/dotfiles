@@ -13,8 +13,7 @@ xcode-select --install
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install gh, python, tree, libomp, cmake
-# brew install starship
+brew install git gh python tree libomp cmake exa wget rustup
 ```
 
 ## Prezto
@@ -33,6 +32,12 @@ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
+```
+
+Install `prezto-contrib`
+```shell
+cd $ZPREZTODIR
+git clone --recurse-submodules https://github.com/belak/prezto-contrib contrib
 ```
 
 **zpreztorc**
@@ -72,9 +77,6 @@ zstyle ':prezto:module:prompt' theme 'spaceship'
 # Custom Additions
 #
 
-# Added by Toolbox App
-export PATH="$PATH:/Users/<username>/Library/Application Support/JetBrains/Toolbox/scripts"
-
 # Added by homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -82,27 +84,19 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"
 ```
 
-**zshrc**
-```shell
-#
-# Aliases
-#
-...
+## Miniconda
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jondeans/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/jondeans/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jondeans/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jondeans/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+Download the latest [shell install script](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh).
+
+Follow install instructions, etc.
+
+```shell
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSC-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3/
+rm -rf ~/miniconda3/miniconda.sh
+
+~/miniconda3/bin/conda init zsh
 ```
 
 ## Fonts
@@ -110,66 +104,50 @@ unset __conda_setup
 Download and install favorite fonts:
 * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono)
 * [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
-* [Fira Mono](https://fonts.google.com/specimen/Fira+Mono)
+* [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip)
+* [Fira Code](https://fonts.google.com/specimen/Fira+Code)
+* [Fira Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip)
 
 ## Terminal
 
 Download and install [iTerm2](https://iterm2.com/).
 
-Make any global changes you want inherited to alternate profiles in the **Default** profile first.
+* Preferences > General > Window > Unselect "Native full screen windows"
+* Preferences > Appearance > General > Theme > "Minimal"
+* Preferences > Appearance > Windows > Select "Hide scrollbars"
+* Preferences > Appearance > Tabs > Unselect "Show tab bar in fullscreen"
 
-* Profiles > Text > Font > "Favorite Font"
-* Profiles > Text > Font > 12
-* Profiles > Text > Font > Use ligatures
-* Profiles > Window > Transparency > 10 
-* Profiles > Window > Blur > 10
-* Profiles > Window > Settings for New Windows > Columns > 100
-* Profiles > Window > Settings for New Windows > Rows > 60
-* Profiles > Terminal > Unlimited Scrollback
+Make any changes you want inherited to alternate profiles in the **Default** profile first.
+* Preferences > Profiles > Keys > Key Mappings > Presets > "Natural Text Editing"
+* Preferences > Profiles > Text > Font > "Favorite Font"
+* Preferences > Profiles > Text > Font > 12
+* Preferences > Profiles > Text > Font > Use ligatures
+* Preferences > Profiles > Window > Transparency > 10 
+* Preferences > Profiles > Window > Blur > 10
+* Preferences > Profiles > Window > Settings for New Windows > Columns > 120
+* Preferences > Profiles > Window > Settings for New Windows > Rows > 60
+* Preferences > Profiles > Terminal > Unlimited Scrollback
 
 Download and install favorite [themes](https://iterm2colorschemes.com/):
-* Andromeda
 * Ayu Mirage
 * ayu light
-* BirdsOfParadise
-* BlulocoDark
 * Calamity
-* Chalk
 * CLRS
 * Darkside
-* Firewatch
-* Github
-* Hopscotch.256
-* JetBrains Darcula
 * LiquidCarbon
-* ManPage
-* Mariana
-* Material
-* MaterialDesignColors
-* matrix
 * MonokaiSoda
-* Night Owlish Light
 * OneHalfLight
 * PaleNightHC
-* Paraiso Dark
-* PencilLight
-* Piatto Light
 * Red Planet
 * Smyck
 * Snazzy
 * Spacedust
-* SpaceGray Eighties
-* Thayer Bright
 * ToyChest
-* Ubuntu
 * vimbones
-* WarmNeon
-* Framer
 * Arthur
-* ChallengerDeep
 * Chester
-* Dark+
-* Galaxy
 * idleToes
-* SeaShells
 
+# To-Do
+
+* Save dotfiles as flatfiles (e.g. `.gitignore` as `gitignore`) then symlink to them. Check out https://github.com/ryanb/dotfiles
