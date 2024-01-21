@@ -129,25 +129,32 @@ Make any changes you want inherited to alternate profiles in the **Default** pro
 * Preferences > Profiles > Terminal > Unlimited Scrollback
 
 Download and install favorite [themes](https://iterm2colorschemes.com/):
-* Ayu Mirage
-* ayu light
-* Calamity
-* CLRS
-* Darkside
-* LiquidCarbon
-* MonokaiSoda
-* OneHalfLight
-* PaleNightHC
-* Red Planet
-* Smyck
-* Snazzy
-* Spacedust
-* ToyChest
-* vimbones
-* Arthur
-* Chester
-* idleToes
+* [Ayu Mirage](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Ayu%20Mirage.itermcolors)
+* [ayu light](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/ayu_light.itermcolors)
+* [Calamity](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Calamity.itermcolors)
+* [CLRS](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/CLRS.itermcolors)
+* [Darkside](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Darkside.itermcolors)
+* [LiquidCarbon](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/LiquidCarbon.itermcolors)
+* [MonokaiSoda](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Monokai%20Soda.itermcolors)
+* [OneHalfLight](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/OneHalfLight.itermcolors)
+* [PaleNightHC](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/PaleNightHC.itermcolors)
+* [Red Planet](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Red%20Planet.itermcolors)
+* [Smyck](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Smyck.itermcolors)
+* [Snazzy](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Snazzy.itermcolors)
+* [Spacedust](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Spacedust.itermcolors)
+* [ToyChest](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/ToyChest.itermcolors)
+* [vimbones](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/vimbones.itermcolors)
+* [Arthur](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Arthur.itermcolors)
+* [Chester](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Chester.itermcolors)
+* [idleToes](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/idleToes.itermcolors)
 
 # To-Do
 
-* Save dotfiles as flatfiles (e.g. `.gitignore` as `gitignore`) then symlink to them. Check out https://github.com/ryanb/dotfiles
+* Save dotfiles as flatfiles (e.g. `.gitignore` as `gitignore`) then symlink to them.
+  * Check out https://github.com/ryanb/dotfiles
+* Check against:
+  * https://github.com/nicolashery/mac-dev-setup
+  * https://www.robinwieruch.de/mac-setup-web-development
+  * https://medium.com/@hendurhance/how-to-set-up-m2-macbook-for-software-development-4a5e20a7866a
+  * https://betterprogramming.pub/how-to-set-up-your-macbook-for-web-developent-in-2021-a7a1f53f6462
+
