@@ -148,6 +148,21 @@ Download and install favorite [themes](https://iterm2colorschemes.com/):
 * [Chester](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Chester.itermcolors)
 * [idleToes](https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/idleToes.itermcolors)
 
+## VS Code Themes
+
+* Ayu Mirage Bordered
+* Monokai Pro
+* Monokai Dark Soda (?)
+* Material Theme Darker
+* Material Neutral
+* Panda
+* Baby Panda
+* oh-lucy-evening
+* Andromeda
+* Snazzy Light
+* Snazzy Operator Softer
+* peacocks-in-space
+
 # To-Do
 
 * Save dotfiles as flatfiles (e.g. `.gitignore` as `gitignore`) then symlink to them.
