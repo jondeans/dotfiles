@@ -40,7 +40,7 @@ cd $ZPREZTODIR
 git clone --recurse-submodules https://github.com/belak/prezto-contrib contrib
 ```
 
-**zpreztorc**
+**zpreztorc:30**
 ```shell
 # Set the Prezto modules to load (browse modules).
 # The order matters.
@@ -63,7 +63,8 @@ zstyle ':prezto:load' pmodule \
   'contrib-prompt' \
   'prompt'
 ```
-...
+
+**zpreztorc:155**
 ```shell
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
@@ -72,6 +73,7 @@ zstyle ':prezto:module:prompt' theme 'spaceship'
 ```
 
 **zprofile**
+*Only for OSX*
 ```shell
 #
 # Custom Additions
