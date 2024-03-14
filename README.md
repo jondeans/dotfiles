@@ -13,7 +13,7 @@ xcode-select --install
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install git gh python tree libomp cmake exa wget rustup
+brew install git gh python tree libomp cmake wget awscli
 ```
 
 ## Prezto
@@ -84,6 +84,13 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Added by me
 export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"
+```
+
+**zshrc**
+*Only for OSX*
+```shell
+echo 'autoload bashcompinit && bashcompinit' >> ~/.zshrc
+echo 'complete -C "/opt/homebrew/bin/aws_completer" aws' >> ~/.zshrc
 ```
 
 ## Miniconda
