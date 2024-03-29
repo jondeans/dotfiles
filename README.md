@@ -8,86 +8,49 @@ New machine configuration.
 xcode-select --install
 ```
 
-## Homebrew
+## [Homebrew](https://brew.sh/)
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install git gh python tree libomp cmake wget awscli
+brew install git gh python libomp cmake wget awscli exa bat starship
 ```
 
-## Prezto
-
-Install configuration framework for Zsh, [Prezto](https://github.com/sorin-ionescu/prezto).
+## [exa](https://github.com/ogham/exa)
 
 ```shell
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+echo '' >> .zshrc
+echo 'alias ls="exa --icons -F -H --group-directories-first --git -1"' >> .zshrc
+echo 'alias ll="ls -alF"' >> .zshrc
+echo 'alias l="ll"' >> .zshrc
 ```
 
-Some of the dotfiles will already be created by OS X. 
-You may need to append their info to the end of the prezto dotfiles if you want functional symlinks.
+## [Starship](https://starship.rs/)
+
+We just installed it with homebrew, but check their [guides](https://starship.rs/guide/) to install in other OS.
+
+cp the `starship.toml` to the config directory
+```sh
+cp starship.toml ~/.config/starship.toml
+```
+
+Add to the end of **.zshrc**
+```shell
+echo '\neval "$(starship init zsh)"' >> .zshrc
+```
+
+## Customize `zsh`
+
+**.zprofile**
 
 ```shell
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+# Use homebrew's py311 for `python`
+echo '' >> .zprofile
+echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zprofile
 ```
 
-Install `prezto-contrib`
-```shell
-cd $ZPREZTODIR
-git clone --recurse-submodules https://github.com/belak/prezto-contrib contrib
-```
-
-**zpreztorc:30**
-```shell
-# Set the Prezto modules to load (browse modules).
-# The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'git' \
-  'ssh' \
-  'homebrew' \
-  'osx' \
-  'python' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'contrib-prompt' \
-  'prompt'
-```
-
-**zpreztorc:155**
-```shell
-# Set the prompt theme to load.
-# Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'spaceship'
-```
-
-**zprofile**
-*Only for OSX*
-```shell
-#
-# Custom Additions
-#
-
-# Added by homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Added by me
-export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"
-```
-
-**zshrc**
-*Only for OSX*
+**.zshrc**
+*Only need to do for OSX*
 ```shell
 echo 'autoload bashcompinit && bashcompinit' >> ~/.zshrc
 echo 'complete -C "/opt/homebrew/bin/aws_completer" aws' >> ~/.zshrc
@@ -95,13 +58,9 @@ echo 'complete -C "/opt/homebrew/bin/aws_completer" aws' >> ~/.zshrc
 
 ## Miniconda
 
-Download the latest [shell install script](https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh).
-
-Follow install instructions, etc.
-
 ```shell
 mkdir -p ~/miniconda3
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSC-arm64.sh -o ~/miniconda3/miniconda.sh
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3/
 rm -rf ~/miniconda3/miniconda.sh
 
