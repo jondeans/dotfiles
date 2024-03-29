@@ -22,16 +22,51 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 Install useful packages
 ```shell
-brew install git gh python libomp cmake wget awscli exa bat starship
+brew install git gh python libomp cmake wget awscli exa bat starship zsh-autocomplete rust
+```
+
+Add zsh-autocomplete to shell
+```shell
+echo "source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> .zshrc
+```
+
+Add [homebrew autocompletions](https://docs.brew.sh/Shell-Completion) to shell
+```shell
+echo '' >> .zshrc
+echo '# Add auto-completions from homebrew' >> .zshrc
+echo 'if type brew &>/dev/null' >> .zshrc
+echo 'then' >> .zshrc
+echo '  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> .zshrc
+echo '' >> .zshrc
+echo '  autoload -Uz compinit' >> .zshrc
+echo '  compinit' >> .zshrc
+echo 'fi'  >> .zshrc
 ```
 
 ## [exa](https://github.com/ogham/exa)
-
 ```shell
 echo '' >> .zshrc
 echo 'alias ls="exa --icons -F -H --group-directories-first --git -1"' >> .zshrc
 echo 'alias ll="ls -alF"' >> .zshrc
 echo 'alias l="ll"' >> .zshrc
+```
+
+```shell
+# Use homebrew's py311 for `python`
+echo '' >> .zshrc
+echo '# Use homebrew's py311 for `python`' >> .zshrc
+echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zshrc
+```
+
+## Miniconda
+
+```shell
+mkdir -p ~/miniconda3
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3/
+rm -rf ~/miniconda3/miniconda.sh
+
+~/miniconda3/bin/conda init zsh
 ```
 
 ## [Starship](https://starship.rs/)
@@ -45,35 +80,7 @@ cp starship.toml ~/.config/starship.toml
 
 Add to the end of **.zshrc**
 ```shell
-echo '\neval "$(starship init zsh)"' >> .zshrc
-```
-
-## Customize `zsh`
-
-**.zprofile**
-
-```shell
-# Use homebrew's py311 for `python`
-echo '' >> .zprofile
-echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zprofile
-```
-
-**.zshrc**
-*Only need to do for OSX*
-```shell
-echo 'autoload bashcompinit && bashcompinit' >> ~/.zshrc
-echo 'complete -C "/opt/homebrew/bin/aws_completer" aws' >> ~/.zshrc
-```
-
-## Miniconda
-
-```shell
-mkdir -p ~/miniconda3
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3/
-rm -rf ~/miniconda3/miniconda.sh
-
-~/miniconda3/bin/conda init zsh
+echo '\n# Always at the bottom\neval "$(starship init zsh)"' >> .zshrc
 ```
 
 ## Fonts
