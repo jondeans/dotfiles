@@ -12,7 +12,16 @@ xcode-select --install
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
+Run the commands given by Homebrew that look like the following:
+```shell
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/{username}/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+Install useful packages
+```shell
 brew install git gh python libomp cmake wget awscli exa bat starship
 ```
 
