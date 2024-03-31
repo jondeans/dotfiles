@@ -16,18 +16,18 @@ xcode-select --install
 
 Run the commands given by Homebrew that look like the following:
 ```shell
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/{username}/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/{USERNAME}/.zprofile
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 Install useful packages
 ```shell
-brew install git gh python libomp cmake wget awscli exa bat starship zsh-autocomplete rust
+brew install git gh python libomp cmake wget awscli exa bat starship zsh-completions zsh-autocomplete 
 ```
 
 Add zsh-autocomplete to shell
 ```shell
-echo "source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" >> .zshrc
+echo 'source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh' >>! .zshrc
 ```
 
 Add [homebrew autocompletions](https://docs.brew.sh/Shell-Completion) to shell
@@ -43,19 +43,23 @@ echo '  compinit' >> .zshrc
 echo 'fi'  >> .zshrc
 ```
 
-## [exa](https://github.com/ogham/exa)
-```shell
-echo '' >> .zshrc
-echo 'alias ls="exa --icons -F -H --group-directories-first --git -1"' >> .zshrc
-echo 'alias ll="ls -alF"' >> .zshrc
-echo 'alias l="ll"' >> .zshrc
-```
-
 ```shell
 # Use homebrew's py311 for `python`
 echo '' >> .zshrc
 echo '# Use homebrew's py311 for `python`' >> .zshrc
 echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zshrc
+```
+
+## [exa](https://github.com/ogham/exa)
+```shell
+echo '' >> .zshrc
+echo '# exa Aliases' >> .zshrc
+echo 'alias ls="exa --icons --classify --group-directories-first --oneline"' >> .zshrc
+echo 'alias ll="ls --long --group --header --git"' >> .zshrc
+echo 'alias lla="ll --all"' >> .zshrc
+echo 'alias tree="ls --tree"' >> .zshrc
+echo 'alias treel="ll --tree"' >> .zshrc
+echo 'alias treela="lla --tree"' >> .zshrc
 ```
 
 ## Miniconda
@@ -80,7 +84,9 @@ cp starship.toml ~/.config/starship.toml
 
 Add to the end of **.zshrc**
 ```shell
-echo '\n# Always at the bottom\neval "$(starship init zsh)"' >> .zshrc
+echo '' >> .zshrc
+echo '# Always at the bottom' >> .zshrc
+echo 'eval "$(starship init zsh)"' >> .zshrc
 ```
 
 ## Fonts
