@@ -44,7 +44,6 @@ echo 'fi'  >> .zshrc
 ```
 
 ```shell
-# Use homebrew's py311 for `python`
 echo '' >> .zshrc
 echo '# Use homebrew's py311 for `python`' >> .zshrc
 echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zshrc
