@@ -65,12 +65,12 @@ echo 'fi' >> .zshrc
 
 Add zsh-history-substring-search (to the end of .zshrc -- but it's near the top right now)
 ```shell
-source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+echo 'source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh' >> .zshrc
 ```
 
 Add zsh-syntax-highlighting (to the end of .zshrc -- but it's near the top right now)
 ```shell
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+echo 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> .zshrc
 ```
 
 #### Use homebrew py311 for `python` alias
