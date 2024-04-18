@@ -20,28 +20,60 @@ Run the commands given by Homebrew that look like the following:
 # eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-Install useful packages
+### Install useful packages
 ```shell
-brew install git gh python libomp cmake wget awscli exa bat starship zsh-completions zsh-autocomplete 
+brew install \
+    git \
+    gh \
+    python \
+    libomp \
+    cmake \
+    wget \
+    awscli \
+    exa \
+    bat \
+    starship \
+    zsh-autocomplete \
+    zsh-autosuggestions \
+    zsh-completions \
+    zsh-history-substring-search \
+    zsh-syntax-highlighting
 ```
 
-Add zsh-autocomplete to shell
+#### Setup completions, suggestions, and syntax, etc.
+
+Add zsh-autosuggestions (at or near the bottom of .zshrc -- but it's at the top right now)
 ```shell
-echo 'source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh' >>! .zshrc
+echo 'source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> .zshrc
 ```
 
-Add [homebrew autocompletions](https://docs.brew.sh/Shell-Completion) to shell
+Add zsh-autocomplete (at or near the top of .zshrc -- but it's at the top right now)
 ```shell
-echo '' >> .zshrc
-echo '# Add auto-completions from homebrew' >> .zshrc
+echo 'source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh' >> .zshrc
+```
+
+Add zsh-completions
+```shell
 echo 'if type brew &>/dev/null' >> .zshrc
 echo 'then' >> .zshrc
 echo '  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> .zshrc
 echo '' >> .zshrc
 echo '  autoload -Uz compinit' >> .zshrc
 echo '  compinit' >> .zshrc
-echo 'fi'  >> .zshrc
+echo 'fi' >> .zshrc
 ```
+
+Add zsh-history-substring-search (to the end of .zshrc -- but it's near the top right now)
+```shell
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+```
+
+Add zsh-syntax-highlighting (to the end of .zshrc -- but it's near the top right now)
+```shell
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
+#### Use homebrew py311 for `python` alias
 
 ```shell
 echo '' >> .zshrc
@@ -91,6 +123,7 @@ echo 'eval "$(starship init zsh)"' >> .zshrc
 ## Fonts
 
 Download and install favorite fonts:
+* [GeistMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/GeistMono.zip)
 * [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono)
 * [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono)
 * [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip)
