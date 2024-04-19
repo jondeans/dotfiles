@@ -1,103 +1,251 @@
-# Inserts a blank line between shell prompts
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = true
 
-# Shows the username
-# [username]
-# style_user = "white bold"
-# show_always = false
+format = """
+[┌─](bold black) $os$username$hostname$aws $fill $status$battery$memory_usage$time
+[│](bold black) $all
+[└─$shlvl$character](bold black)
+"""
 
-[sudo]
-disabled = false
-
-
-# Nerd font symbols
-# https://starship.rs/presets/nerd-font.html
+[fill]
+symbol = "─"
+style = "bold black"
 
 [aws]
-symbol = "󰸏 "
+format = "via [$symbol($profile)( \\($region\\))( \\[$duration\\])( \\[$expiration_symbol\\])]($style)"
+symbol = "  "
+expiration_symbol = "[](bold red)"
 
 [azure]
 symbol = "󰠅 "
 
+[battery]
+unknown_symbol = "󰂑 "
+[[battery.display]]
+threshold = 100
+style = "white"
+[[battery.display]]
+threshold = 80
+style = "green"
+[[battery.display]]
+threshold = 60
+style = "yellow"
+[[battery.display]]
+threshold = 40
+style = "orange"
+[[battery.display]]
+threshold = 20
+style = "red"
+
 [buf]
+disabled = true
 symbol = " "
+
+[bun]
+disabled = true
 
 [c]
 symbol = " "
 
+[character]
+success_symbol = ""
+error_symbol = "[ ](bold red)"
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[cmd_duration]
+format = "runtime [$duration]($style) "
+
 [conda]
-symbol = " "
+symbol = "󱥸 "
+style = "bold green"
+ignore_base = false
+
+[container]
+symbol = " "
+
+[crystal]
+disabled = true
+symbol = "󰬯 "
+
+[daml]
+disabled = true
 
 [dart]
-symbol = " "
+disabled = true
+symbol = " "
+
+[deno]
+disabled = true
 
 [directory]
+truncation_length = 8
+truncation_symbol = ".../"
+truncate_to_repo = true
 read_only = " 󰌾"
 
+[direnv]
+
 [docker_context]
-symbol = " "
+symbol = "  "
+
+[dotnet]
+disabled = true
+symbol = " "
 
 [elixir]
-symbol = " "
+disabled = true
+symbol = " "
 
 [elm]
+disabled = true
 symbol = " "
 
+[erlang]
+disabled = true
+symbol = " "
+
+[fennel]
+disabled = true
+symbol = " "
+
 [fossil_branch]
-symbol = " "
+disabled = true
+symbol = "󰹧 "
+
+[fossil_metrics]
+disabled = true
 
 [gcloud]
 symbol = "󱇶 "
-# symbol = "☁ "
-format = 'on [$symbol$active]($style) '
+format = "on [$symbol$active(@$domain)(\\($region\\))(\\($project\\))]($style) "
 
 [git_branch]
-symbol = " "
+symbol = "󰹧 "
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 4
+truncation_symbol = "..."
+
+[git_commit]
+commit_hash_length = 5
+tag_symbol = " "
+
+[git_state]
+
+[git_metrics]
+disabled = false
+
+[git_status]
 
 [golang]
-symbol = " "
+symbol = " "
 
 [guix_shell]
+disabled = true
 symbol = " "
 
+[gradle]
+disabled = true
+symbol =" "
+
 [haskell]
+disabled = true
 symbol = " "
 
 [haxe]
+disabled = true
 symbol = " "
 
+[helm]
+disabled = true
+symbol = "󰠳 "
+
 [hg_branch]
-symbol = " "
+disabled = true
+symbol = "󰹧 "
 
 [hostname]
+ssh_only = false
 ssh_symbol = " "
+format ="[$ssh_symbol$hostname]($style) "
+style = "bold green dimmed"
+detect_env_vars = ['!TMUX', 'SSH_CONNECTION']
+disabled = false
 
 [java]
+disabled = true
 symbol = " "
+
+[jobs]
+symbol = "+ "
 
 [julia]
 symbol = " "
 
+[kotlin]
+disabled = true
+symbol = " "
+
+[line_break]
+disabled = true
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+
+[localip]
+ssh_only = false
+format = "@[$localipv4]($style) "
+
 [lua]
+disabled = true
 symbol = " "
 
 [memory_usage]
+disabled = false
+threshold = 85
+format = "with $symbol[$ram_pct(|$swap_pct)]($style) "
 symbol = "󰍛 "
+style = "red bold"
 
 [meson]
+disabled = true
 symbol = "󰔷 "
 
 [nim]
+disabled = true
 symbol = "󰆥 "
 
 [nix_shell]
+disabled = true
 symbol = " "
 
 [nodejs]
-symbol = " "
+disabled = true
+symbol = "󰎙 "
+
+[ocaml]
+disabled = true
+symbol = " "
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[os]
+disabled = false
 
 [os.symbols]
 Alpaquita = " "
+AlmaLinux = " "
 Alpine = " "
 Amazon = " "
 Android = " "
@@ -114,6 +262,7 @@ Garuda = "󰛓 "
 Gentoo = " "
 HardenedBSD = "󰞌 "
 Illumos = "󰈸 "
+Kali = "  "
 Linux = " "
 Mabox = " "
 Macos = " "
@@ -130,30 +279,125 @@ Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
+RockyLinux = " "
 Redox = "󰀘 "
 Solus = "󰠳 "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
+Void = " "
 Windows = "󰍲 "
 
 [package]
-symbol = "󰏗 "
+symbol = "󰏓 "
+
+[perl]
+symbol = " "
+
+[php]
+disabled = true
+symbol = " "
 
 [pijul_channel]
-symbol = " "
+disabled = true
+symbol = "󰹧 "
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+symbol = " "
 
 [python]
-symbol = " "
+symbol = " "
+
+[quarto]
+disabled = true
 
 [rlang]
-symbol = "󰟔 "
+symbol = " "
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
 
 [ruby]
+disabled = true
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = " "
 
 [scala]
+disabled = true
 symbol = " "
+
+[shell]
+
+[shlvl]
+disabled = false
+format = "$symbol"
+repeat = true
+symbol = ""
+repeat_offset = 1
+threshold = 0
+
+[singularity]
+symbol = "󱕯 "
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = false
+symbol = " "
+success_symbol = " "
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = "󰚛 "
+signal_symbol = " "
+format = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
+map_symbol = true
+
+[sudo]
+style = 'bold red'
+symbol = '󱓬 '
+disabled = false
+
+[swift]
+disabled = true
+
+[terraform]
+symbol = " "
+
+[time]
+disabled = false
+use_12hr = true
+
+[typst]
+
+[username]
+style_user = 'white bold'
+style_root = 'black bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
+
+[vagrant]
+
+[vlang]
+disabled = true
+symbol = " "
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true
+symbol = " "
