@@ -4,14 +4,14 @@
 add_newline = true
 
 format = """
-[┌─](bold black) $os$username$hostname$aws $fill $status$battery$memory_usage$time
-[│](bold black) $all
-[└─$shlvl$character](bold black)
+[┌─](white) $os$username$hostname$aws $fill $status$battery$memory_usage$time
+[│](white) $all
+[└─$shlvl$character](white)
 """
 
 [fill]
 symbol = "─"
-style = "bold black"
+style = "white"
 
 [aws]
 format = "via [$symbol($profile)( \\($region\\))( \\[$duration\\])( \\[$expiration_symbol\\])]($style)"
@@ -24,20 +24,20 @@ symbol = "󰠅 "
 [battery]
 unknown_symbol = "󰂑 "
 [[battery.display]]
-threshold = 100
-style = "white"
-[[battery.display]]
-threshold = 80
-style = "green"
-[[battery.display]]
-threshold = 60
-style = "yellow"
+threshold = 20
+style = "red"
 [[battery.display]]
 threshold = 40
 style = "orange"
 [[battery.display]]
-threshold = 20
-style = "red"
+threshold = 60
+style = "yellow"
+[[battery.display]]
+threshold = 80
+style = "green"
+[[battery.display]]
+threshold = 100
+style = "white"
 
 [buf]
 disabled = true
@@ -401,3 +401,4 @@ disabled = true
 [zig]
 disabled = true
 symbol = " "
+
