@@ -30,7 +30,7 @@ brew install \
     cmake \
     wget \
     awscli \
-    exa \
+    eza \
     bat \
     starship \
     zsh-autocomplete \
