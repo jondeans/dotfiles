@@ -81,11 +81,11 @@ echo '# Use homebrew's py311 for `python`' >> .zshrc
 echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zshrc
 ```
 
-## [exa](https://github.com/ogham/exa)
+## [eza](https://github.com/eza-community/eza)
 ```shell
 echo '' >> .zshrc
-echo '# exa Aliases' >> .zshrc
-echo 'alias ls="exa --icons --classify --group-directories-first --oneline"' >> .zshrc
+echo '# eza Aliases' >> .zshrc
+echo 'alias ls="eza --icons --classify --group-directories-first --oneline"' >> .zshrc
 echo 'alias ll="ls --long --group --header --git"' >> .zshrc
 echo 'alias lla="ll --all"' >> .zshrc
 echo 'alias tree="ls --tree"' >> .zshrc
