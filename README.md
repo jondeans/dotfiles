@@ -184,6 +184,7 @@ Download and install favorite [themes](https://iterm2colorschemes.com/):
 * Snazzy Light
 * Snazzy Operator Softer
 * peacocks-in-space
+* Vuesion
 
 # To-Do
 
