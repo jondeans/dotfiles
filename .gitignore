@@ -1,2 +1,8 @@
-#Intellij
+# OS X files
+.DS_Store
+
+# PyCharm
 .idea
+
+# VS Code stuff
+.vscode

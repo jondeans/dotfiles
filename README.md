@@ -77,7 +77,6 @@ echo 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting
 
 ```shell
 echo '' >> .zshrc
-echo '# Use homebrew's py311 for `python`' >> .zshrc
 echo 'export PATH="$PATH:/opt/homebrew/opt/python@3.11/libexec/bin"' >> .zshrc
 ```
 
@@ -110,7 +109,7 @@ We just installed it with homebrew, but check their [guides](https://starship.rs
 
 cp the `starship.toml` to the config directory
 ```sh
-cp starship.toml ~/.config/starship.toml
+cp starship/horizontal.toml ~/.config/starship.toml
 ```
 
 Add to the end of **.zshrc**
