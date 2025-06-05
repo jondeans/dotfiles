@@ -31,6 +31,7 @@ $bun\
 $c\
 $cmake\
 $cobol\
+$conda\
 $crystal\
 $daml\
 $dart\
@@ -124,7 +125,7 @@ symbol = ''
 [character]
 error_symbol   = '[χ](bold fg:error)'
 format         = '$symbol '
-success_symbol = '[λ](bold fg:success)'
+success_symbol = '[▶](bold fg:success)'
 
 ###
 # Configures the cmake module
@@ -139,6 +140,14 @@ symbol = ''
 [cobol]
 format = '[─](fg:current_line)[ $symbol ](fg:primary bg:color4)([ $version ](fg:foreground bg:box))'
 symbol = 'COBOL'
+
+###
+# Configures the conda module
+###
+[conda]
+format = '[─](fg:current_line)[ $symbol ](fg:primary bg:color4)([ $environment ](fg:foreground bg:box))'
+symbol = "󱥸 "
+ignore_base = false
 
 ###
 # Configures the crystal module
