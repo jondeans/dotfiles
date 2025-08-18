@@ -194,4 +194,5 @@ Download and install favorite [themes](https://iterm2colorschemes.com/):
   * https://www.robinwieruch.de/mac-setup-web-development
   * https://medium.com/@hendurhance/how-to-set-up-m2-macbook-for-software-development-4a5e20a7866a
   * https://betterprogramming.pub/how-to-set-up-your-macbook-for-web-developent-in-2021-a7a1f53f6462
-
+* Check out:
+  * https://github.com/JGroxz/presto-prezto
